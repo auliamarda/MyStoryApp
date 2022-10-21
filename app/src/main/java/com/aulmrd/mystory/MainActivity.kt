@@ -17,8 +17,6 @@ import com.aulmrd.mystory.ui.register.RegisterActivity
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var btnMasuk1 : Button
-    private lateinit var btnMasuk2 : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +24,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         setupView()
-        setupAction()
         playAnimation()
 
-        btnMasuk1 = findViewById(R.id.btn_masuk1)
-        btnMasuk1.setOnClickListener(this)
-
-        btnMasuk2 = findViewById(R.id.btn_masuk2)
-        btnMasuk2.setOnClickListener(this)
+        binding.btnMasuk1.setOnClickListener(this)
+        binding.btnMasuk2.setOnClickListener(this)
 
     }
 
@@ -48,10 +42,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
         }
         supportActionBar?.hide()
-    }
-
-    private fun setupAction(){
-        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     override fun onClick(v: View) {
